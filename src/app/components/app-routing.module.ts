@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserFormComponent } from './user-form/user-form.component';
+import { UserFormComponent } from '../user-form/user-form.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 
 export const routes: Routes = [
