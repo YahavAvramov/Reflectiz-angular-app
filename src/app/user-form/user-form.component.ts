@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
   styleUrls: ['./user-form.component.scss'],
+  standalone: false,
 })
 export class UserFormComponent {
   firstName: string = '';
