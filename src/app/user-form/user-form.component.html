@@ -1,0 +1,62 @@
+<form class="form">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input
+      ngModel
+      required
+      minlength="2"
+      maxlength="10"
+      name="firstName"
+      id="firstName"
+      type="text"
+      #firstName="ngModel"
+    />
+    <div class="alert alert-danger" *ngIf="firstName.touched && firstName.errors">
+      <div *ngIf="firstName.errors['required']">First name is required.</div>
+      <div *ngIf="firstName.errors['minlength']">First name should be minimum 2 characters.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="surname">Surname</label>
+    <input
+      ngModel
+      required
+      minlength="2"
+      name="surname"
+      id="surname"
+      type="text"
+      #surname="ngModel"
+    />
+    <div class="alert alert-danger" *ngIf="surname.touched && surname.errors">
+      <div *ngIf="surname.errors['required']">surname is required.</div>
+      <div *ngIf="surname.errors['minlength']">surname should be minimum 2 characters.</div>
+    </div>
+  </div>
+
+  <fieldset>
+    <input type="radio" name="set-gender" />
+    <label for="set-male">Male</label>
+    <input id="set-female" type="radio" name="set-gender" />
+    <label for="sett-female">Female</label>
+  </fieldset>
+
+  <div class="form-group">
+    <label for="surname">Email</label>
+    <input
+      ngModel
+      required
+      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+      name="email"
+      id="email"
+      type="text"
+      #email="ngModel"
+    />
+    <div class="alert alert-danger" *ngIf="email.touched && email.errors">
+      <div *ngIf="email.errors['required']">Email is required.</div>
+      <div *ngIf="email.errors['pattern']">Email is not valid.</div>
+    </div>
+  </div>
+  <app-date-picker></app-date-picker>
+
+  <button class="btn btn-primary">Submit</button>
+</form>
