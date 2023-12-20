@@ -9,8 +9,9 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatInputModule } from '@angular/material/input';
-import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, UserFormComponent, HeadersComponent, DatePickerComponent],
@@ -20,8 +21,12 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     FormsModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule,
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
+  providers: [MatDatepickerModule, MatNativeDateModule],
   bootstrap: [AppComponent],
   exports: [DatePickerComponent],
 })
