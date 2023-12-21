@@ -1,4 +1,11 @@
 {
+  "motors": [
+    { "type": "Electric" },
+    { "type": "Diesel" },
+    { "type": "Petrol" },
+    { "type": "Hybrid" },
+    { "type": "Other" }
+  ],
   "countries": [
     { "name": "Afghanistan", "code": "AF" },
     { "name": "Åland Islands", "code": "AX" },

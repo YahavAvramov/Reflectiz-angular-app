@@ -1,0 +1,13 @@
+<div>
+  <input [(ngModel)]="newHobby" placeholder="Enter a new hobby" class="input-hobby" />
+  <button (click)="addHobby()">Add Hobby</button>
+</div>
+<ul>
+  <li *ngFor="let hobby of hobbies; let i = index">
+    {{ hobby }}
+
+    <button (click)="deleteHobby(i)">
+      <img src="./assets/x.png" alt="Delete" class="close-img" />
+    </button>
+  </li>
+</ul>

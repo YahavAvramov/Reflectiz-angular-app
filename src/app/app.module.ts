@@ -14,6 +14,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CountrySelectComponent } from './components/country-select/country-select.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HobbiesComponent } from './components/hobbies/hobbies.component';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeadersComponent,
     DatePickerComponent,
     CountrySelectComponent,
+    HobbiesComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ColorPickerModule,
+    MatSnackBarModule,
   ],
   providers: [MatDatepickerModule, MatNativeDateModule],
   bootstrap: [AppComponent],

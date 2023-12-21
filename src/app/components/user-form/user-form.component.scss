@@ -1,5 +1,92 @@
-.form{
-    position: absolute;
-    top: 50%;
+$alert-color: #ffc2c2;
+$invalid-text: #ff8383;
 
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  padding: 30px;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 20px;
+
+  input[type='text'],
+  input[type='number'] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s ease-in-out;
+
+    &:focus {
+      border-color: #007bff;
+    }
+
+    &.invalid {
+      border-color: $invalid-text;
+      background-color: $alert-color;
+    }
+  }
+
+  .alert {
+    margin-top: 8px;
+    color: $invalid-text;
+  }
+}
+
+fieldset {
+  margin-bottom: 20px;
+}
+
+.color-picker-container {
+  margin-bottom: 20px;
+
+  .color-picker {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+
+.container-number-of-seats,
+.container-motor-type {
+  margin-bottom: 20px;
+
+  select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #0056b3;
+  }
 }
