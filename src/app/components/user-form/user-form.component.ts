@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DatePickerComponent } from '../components/date-picker/date-picker.component';
+import { DatePickerComponent } from '../date-picker/date-picker.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
