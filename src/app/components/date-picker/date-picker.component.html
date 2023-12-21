@@ -1,6 +1,10 @@
 <div class="container">
-  <input matInput [matDatepicker]="picker" class="datepicker-input" />
-  <mat-hint>MM/DD/YYYY</mat-hint>
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
+  <input matInput [matDatepicker]="picker" class="datepicker-input" [max]="maxDate" />
+  <mat-hint class="custom-hint">MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle
+    class="custom-datepicker-toggle"
+    matIconSuffix
+    [for]="picker"
+  ></mat-datepicker-toggle>
+  <mat-datepicker #picker class="custom-datepicker"></mat-datepicker>
 </div>

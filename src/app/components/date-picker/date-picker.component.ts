@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDatepicker } from '@angular/material/datepicker';
+import { Component } from '@angular/core';
+import { DateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-date-picker',
@@ -7,7 +7,10 @@ import { MatDatepicker } from '@angular/material/datepicker';
   styleUrls: ['./date-picker.component.scss'],
 })
 export class DatePickerComponent {
-  @ViewChild(MatDatepicker) datepicker: MatDatepicker<Date> | undefined;
-  @ViewChild('picker')
-  picker?: MatDatepicker<Date>;
+  maxDate: Date;
+
+  constructor(private dateAdapter: DateAdapter<Date>) {
+    // max date that the user can choose is today
+    this.maxDate = this.dateAdapter.today();
+  }
 }

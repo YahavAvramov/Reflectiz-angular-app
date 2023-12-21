@@ -12,9 +12,17 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ContrySelectComponent } from './components/contry-select/contry-select.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, UserFormComponent, HeadersComponent, DatePickerComponent],
+  declarations: [
+    AppComponent,
+    UserFormComponent,
+    HeadersComponent,
+    DatePickerComponent,
+    ContrySelectComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatNativeDateModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [MatDatepickerModule, MatNativeDateModule],
   bootstrap: [AppComponent],

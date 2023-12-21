@@ -1,3 +1,57 @@
 .container {
-  width: 150px;
+  position: relative;
+}
+
+.datepicker-input {
+  width: 200px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.mat-datepicker-popup {
+  background-color: #007bff;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 1000;
+}
+
+.mat-calendar {
+  width: 20px;
+}
+
+.mat-calendar-body-cell {
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  text-align: center;
+  line-height: 30px;
+}
+.mat-calendar {
+  width: 40px;
+}
+
+.mat-calendar-table {
+  width: 100%;
+  table-layout: fixed;
+
+  .mat-calendar-body-cell {
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+    text-align: center;
+    line-height: 30px;
+  }
+}
+
+mat-hint {
+  font-size: 12px;
+  color: #666;
+}
+
+mat-datepicker-toggle {
+  color: #007bff;
+  cursor: pointer;
 }
