@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
 
 @Component({
@@ -8,6 +8,7 @@ import { DateAdapter } from '@angular/material/core';
 })
 export class DatePickerComponent {
   maxDate: Date;
+  @Output() dateChange: EventEmitter<Date> = new EventEmitter<Date>();
 
   constructor(private dateAdapter: DateAdapter<Date>) {
     // max date that the user can choose is today

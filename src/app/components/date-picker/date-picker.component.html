@@ -1,5 +1,13 @@
 <div class="container">
-  <input matInput [matDatepicker]="picker" class="datepicker-input" [max]="maxDate" />
+  <input
+    matInput
+    [matDatepicker]="picker"
+    class="datepicker-input"
+    [max]="maxDate"
+    (dateChange)="dateChange.emit($event.target.value)"
+    readonly
+    tabindex="-1"
+  />
   <mat-hint class="custom-hint">MM/DD/YYYY</mat-hint>
   <mat-datepicker-toggle
     class="custom-datepicker-toggle"

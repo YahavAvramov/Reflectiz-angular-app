@@ -8,16 +8,16 @@ import { ToastrService } from 'ngx-toastr';
 export class AlertService {
   constructor(private toastr: ToastrService) {}
 
-  showInfoSnackbar(message: string) {
-    this.toastr.info(message, '', {
+  showInfoSnackbar(message: string, titel?: string) {
+    this.toastr.info(message, titel ?? '', {
       timeOut: 5000,
       positionClass: 'toast-info',
       closeButton: false,
     });
   }
 
-  showInfoSnackbarSuccess(message: string) {
-    this.toastr.success(message, '', {
+  showInfoSnackbarSuccess(message: string, titel?: string) {
+    this.toastr.success(message, titel ?? '', {
       timeOut: 5000,
       positionClass: 'toast-success',
       closeButton: false,

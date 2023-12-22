@@ -1,7 +1,7 @@
 <label for="country">Country</label>
 
-<select id="country" name="country" class="form-control">
-  <option value="country.name" *ngFor="let country of countriesList$ | async">
+<select id="country" name="country" class="form-control" (change)="handleCountryChange($event)">
+  <option [value]="[country.name]" *ngFor="let country of countriesList$ | async">
     {{ country.name }}
   </option>
 </select>
