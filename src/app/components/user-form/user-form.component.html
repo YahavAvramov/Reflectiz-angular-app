@@ -69,7 +69,7 @@
     <input
       [(colorPicker)]="favoriteColor"
       [style.background]="favoriteColor"
-      [(ngModul)]="favoriteColor"
+      name="favoriteColor"
       id="colorPicker"
       class="color-picker"
       readonly
@@ -81,10 +81,9 @@
   </div>
   <div class="container-motor-type">
     <label for="motor-select">Select motor for your car</label>
-    <select (change)="onMotorSelect($event.target.value, motor)" id="motor-select">
+    <select (change)="onMotorSelect($event)" id="motor-select">
       <option [value]="motor.type" *ngFor="let motor of motors$ | async">{{ motor.type }}</option>
     </select>
   </div>
-  <app-error-msg></app-error-msg>
   <button class="btn btn-primary">Submit</button>
 </form>

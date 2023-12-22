@@ -1,20 +1,29 @@
 ::ng-deep {
-  .custom-snackbar-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    background-color: #ffbaba;
-    opacity: 0.8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    color: #d8000c;
+  .toast {
+    &-info {
+      top: 0;
+      padding: 25px 30px;
+      font-size: 18px;
+      white-space: nowrap;
+      border-radius: 8px;
+      background-color: #ffbaba;
+      color: #d8000c;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      z-index: 99;
+    }
 
     &-success {
-      color: #270;
-      background-color: #dff2bf;
+      background-color: #270;
+      color: #dff2bf;
+      top: 0;
+      padding: 25px 30px;
+      font-size: 18px;
+      white-space: nowrap;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      z-index: 99;
     }
   }
 }

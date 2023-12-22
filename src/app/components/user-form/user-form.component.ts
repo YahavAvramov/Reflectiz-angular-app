@@ -39,18 +39,12 @@ export class UserFormComponent implements OnInit {
     this.hobbies = hobbies;
   }
 
-  onMotorSelect(selectedMotor: string) {
-    this.selectedMotor = new Motor(selectedMotor);
-  }
-  showInfoSnackbar(message: string) {
-    this.snackBar.open(message, 'Close', {
-      duration: 5000,
-      verticalPosition: 'top',
-      panelClass: ['custom-snackbar', 'custom-snackbar-container'],
-    });
+  onMotorSelect(event: Event) {
+    this.selectedMotor = new Motor((event.target as HTMLSelectElement).value);
   }
 
   onSubmit() {
     if (this.hobbies.length == 0) this.alertService.showInfoSnackbar('Info is not correct');
+    this.alertService.clearAllToastsAfterDelay();
   }
 }

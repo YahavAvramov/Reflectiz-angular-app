@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HobbiesComponent } from './components/hobbies/hobbies.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -31,8 +32,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FormsModule,
     RouterModule.forRoot(routes),
+    ToastrModule.forRoot(),
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
@@ -41,7 +42,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ColorPickerModule,
     MatSnackBarModule,
   ],
-  providers: [MatDatepickerModule, MatNativeDateModule],
+  providers: [],
   bootstrap: [AppComponent],
   exports: [DatePickerComponent],
 })
