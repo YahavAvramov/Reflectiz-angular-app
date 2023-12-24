@@ -1,0 +1,24 @@
+<ng-container *ngIf="users$ | async as allUsers">
+  <ng-container *ngIf="usersByRange0_18$ | async as users">
+    <section class="model-1">
+      <div class="graph" [style.height.%]="(users.length / allUsers.length) * 100">
+        0-18: {{ users.length }}
+      </div>
+    </section>
+  </ng-container>
+  <ng-container *ngIf="usersByRange18_30$ | async as users">
+    <section class="model-2">
+      <div class="graph" tooltip="10%">18-30: {{ users.length }}</div>
+    </section>
+  </ng-container>
+  <ng-container *ngIf="usersByRange30_60$ | async as users">
+    <section class="model-3">
+      <div class="graph" [style.height.%]="100">30-60: {{ users.length }}</div>
+    </section>
+  </ng-container>
+  <ng-container *ngIf="usersByRange60_150$ | async as users">
+    <section class="model-4">
+      <div class="graph" [style.height.%]="10">60+: {{ users.length }}</div>
+    </section>
+  </ng-container>
+</ng-container>

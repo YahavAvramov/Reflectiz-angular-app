@@ -18,7 +18,9 @@ import { HobbiesComponent } from './components/hobbies/hobbies.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToastrModule } from 'ngx-toastr';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/Dashboard /home/home.component';
+import { MostCommonHobbyComponent } from './components/Dashboard /most-common-hobby/most-common-hobby.component';
+import { UsersByAgeComponent } from './components/Dashboard /users-by-age/users-by-age.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { HomeComponent } from './home/home.component';
     CountrySelectComponent,
     HobbiesComponent,
     HomeComponent,
+    MostCommonHobbyComponent,
+    UsersByAgeComponent,
   ],
   imports: [
     BrowserModule,

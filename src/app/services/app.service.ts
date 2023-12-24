@@ -5,6 +5,8 @@ import { env } from '../env';
 import { Country } from '../models/country';
 import { Motor } from '../models/motor';
 import { User } from '../models/user';
+import { HobbyView } from '../models/hobbyView';
+import { AgeCategory, AgeCategoryStats } from '../models/ateCategoryStats';
 
 @Injectable({
   providedIn: 'root',
@@ -37,5 +39,76 @@ export class AppService {
 
   createNewUser(user: User): Observable<boolean> {
     return this.http.post<boolean>(this.usersApi, user);
+  }
+
+  getMostCommonHobbies(): Observable<HobbyView[]> {
+    return this.http.get<User[]>(this.usersApi).pipe(
+      map((users) => {
+        // Flatten the array of hobbies
+        const allHobbies: string[] = users.reduce<string[]>(
+          (acc, user) => acc.concat(user.listOfHobbies),
+          [],
+        );
+
+        // Create a map to count occurrences
+        const hobbyCountMap = new Map<string, number>();
+        allHobbies.forEach((hobby) => {
+          const count = hobbyCountMap.get(hobby) || 0;
+          hobbyCountMap.set(hobby, count + 1);
+        });
+
+        // Convert the map to an array of HobbyView objects
+        const sortedHobbies = Array.from(hobbyCountMap.entries()).sort((a, b) => b[1] - a[1]);
+
+        // Extract the top 5 hobbies with counts as HobbyView objects
+        const topHobbiesWithCounts = sortedHobbies
+          .slice(0, 5)
+          .map((entry) => new HobbyView(entry[0], entry[1]));
+
+        return topHobbiesWithCounts;
+      }),
+    );
+  }
+  getTotalHobbiesCount(): Observable<number> {
+    return this.http.get<User[]>(this.usersApi).pipe(
+      map((users) => {
+        return users.reduce((count, user) => count + user.listOfHobbies.length, 0);
+      }),
+    );
+  }
+
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.usersApi);
+  }
+
+  getUsersByAgeRange(from: number, to: number): Observable<User[]> {
+    return this.getUsers().pipe(
+      map((users) => users.filter((user) => this.isInAgeRange(user.birthDate, from, to))),
+    );
+  }
+
+  private isInAgeRange(birthDate: Date, from: number, to: number): boolean {
+    const age = this.calculateAge(birthDate);
+    return age >= from && age <= to;
+  }
+
+  private calculateAge(birthDate: Date): number {
+    const today = new Date();
+    const birthDateCopy = new Date(birthDate);
+
+    // Calculate the difference in years
+    let age = today.getFullYear() - birthDateCopy.getFullYear();
+
+    // Check if the birthday has occurred this year
+    const isBirthdayPassed =
+      today.getMonth() > birthDateCopy.getMonth() ||
+      (today.getMonth() === birthDateCopy.getMonth() && today.getDate() >= birthDateCopy.getDate());
+
+    // If birthday hasn't occurred, subtract one year
+    if (!isBirthdayPassed) {
+      age--;
+    }
+
+    return age;
   }
 }
