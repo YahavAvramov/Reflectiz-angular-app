@@ -1,4 +1,16 @@
-<ng-container class="main-page">
-  <app-headers></app-headers>
-  <router-outlet></router-outlet>
+<ng-container *ngIf="isServerRuning$ | async; else serverNotRunning">
+  <div class="main-page">
+    <app-headers></app-headers>
+    <router-outlet></router-outlet>
+  </div>
 </ng-container>
+
+<ng-template #serverNotRunning>
+  <div class="centered-message">
+    <p>
+      Server is not running. Please start the server by running on a new terminal the command
+      <span>"npm run start:json-server"</span>
+      and refresh the app.
+    </p>
+  </div>
+</ng-template>

@@ -6,11 +6,26 @@ $invalid-text: #ff8383;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
+  width: 50%;
+  max-width: 600px;
   padding: 30px;
   background-color: #f5f5f5;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+  // Adjusted width for medium screens
+  @media (max-width: 992px) {
+    width: 80%;
+  }
+  // Adjusted width for small screens
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+  // Adjusted width for extra small screens
+  @media (max-width: 576px) {
+    width: 95%;
+    padding: 20px;
+  }
 }
 
 .label {
@@ -39,11 +54,10 @@ $invalid-text: #ff8383;
       background-color: $alert-color;
     }
   }
-
-  .alert {
-    margin-top: 8px;
-    color: $invalid-text;
-  }
+}
+.alert {
+  margin-top: 8px;
+  color: $invalid-text;
 }
 
 fieldset {

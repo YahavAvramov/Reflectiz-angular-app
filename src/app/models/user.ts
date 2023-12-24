@@ -1,28 +1,31 @@
-import { Gender } from './gender';
-import { MotorType } from './motor-type';
+import { Location } from './location';
+import { Motor } from './motor';
 
 export class User {
-  fullName: string;
-  gender: Gender; 
+  firstName: string;
+  lastName: string;
+  gender: string;
   email: string;
   birthDate: Date;
-  locationDetails: string;
+  locationDetails: Location;
   listOfHobbies: Array<string>;
   favoriteColor: string;
   requiredAmountOfSeats: number; // number between 2-7
-  motorType: MotorType;
+  motorType: Motor;
   constructor(
-    _fullName: string,
-    _gender: Gender,
+    _firstName: string,
+    _lastName: string,
+    _gender: string,
     _email: string,
     _birthDate: Date,
-    _locationDetails: string,
+    _locationDetails: Location,
     _listOfHobbies: Array<string>,
     _favoriteColor: string,
     _requiredAmountOfSeats: number,
-    _motorType: MotorType,
+    _motorType: Motor,
   ) {
-    this.fullName = _fullName;
+    this.firstName = _firstName;
+    this.lastName = _lastName;
     this.gender = _gender;
     this.email = _email;
     this.birthDate = _birthDate;

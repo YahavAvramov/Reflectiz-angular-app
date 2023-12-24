@@ -1,4 +1,4 @@
-<form class="form" (ngSubmit)="onSubmit()">
+<form class="form" #form="ngForm">
   <div class="form-group">
     <label for="firstName">First Name</label>
     <input
@@ -12,7 +12,7 @@
       #firstName="ngModel"
       [class.invalid]="firstName.touched && firstName.errors"
     />
-    <div class="alert alert-danger" *ngIf="firstName.touched && firstName.errors">
+    <div class="alert" *ngIf="firstName.touched && firstName.errors">
       <div *ngIf="firstName.errors['required']">* First name is required.</div>
       <div *ngIf="firstName.errors['minlength']">* First name should be minimum 2 characters.</div>
     </div>
@@ -20,7 +20,7 @@
   <div class="form-group">
     <label for="surname">Surname</label>
     <input
-      [(ngModel)]="surnameValue"
+      [(ngModel)]="lastNameValue"
       required
       minlength="2"
       name="surname"
@@ -29,9 +29,9 @@
       #surname="ngModel"
       [class.invalid]="surname.touched && surname.errors"
     />
-    <div class="alert alert-danger" *ngIf="surname.touched && surname.errors">
-      <div *ngIf="surname.errors['required']">* surname is required.</div>
-      <div *ngIf="surname.errors['minlength']">* surname should be minimum 2 characters.</div>
+    <div class="alert" *ngIf="surname.touched && surname.errors">
+      <div *ngIf="surname.errors['required']">* Surname is required.</div>
+      <div *ngIf="surname.errors['minlength']">* Surname should be minimum 2 characters.</div>
     </div>
   </div>
 
@@ -61,7 +61,7 @@
       #email="ngModel"
       [class.invalid]="email.touched && email.errors"
     />
-    <div class="alert alert-danger" *ngIf="email.touched && email.errors">
+    <div class="alert" *ngIf="email.touched && email.errors">
       <div *ngIf="email.errors['required']">* Email is required.</div>
       <div *ngIf="email.errors['pattern']">* Email is not valid.</div>
     </div>
@@ -84,6 +84,7 @@
       readonly
     />
   </div>
+
   <div class="container-number-of-seats">
     <label for="number-of-seats">Required amount of seats</label>
     <input
@@ -91,14 +92,19 @@
       [min]="minSeats"
       [max]="maxSeats"
       id="number-of-seats"
-      [value]="requiredAmountOfSeats"
+      name="number-of-seats"
+      [(ngModel)]="requiredAmountOfSeats"
     />
+    <div *ngIf="requiredAmountOfSeats < minSeats || requiredAmountOfSeats > maxSeats">
+      <div class="alert">* Value must be between {{ minSeats }} and {{ maxSeats }}.</div>
+    </div>
   </div>
+
   <div class="container-motor-type">
     <label for="motor-select">Select motor for your car</label>
     <select (change)="onMotorSelect($event)" id="motor-select">
       <option [value]="motor.type" *ngFor="let motor of motors$ | async">{{ motor.type }}</option>
     </select>
   </div>
-  <button class="btn btn-primary">Submit</button>
+  <button type="submit" [class.disabled]="!form.form.valid" (click)="onSubmit()">Submit</button>
 </form>

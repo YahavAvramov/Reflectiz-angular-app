@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserFormComponent } from './user-form/user-form.component';
-import { DatePickerComponent } from './date-picker/date-picker.component';
+import { HobbiesComponent } from './hobbies/hobbies.component';
 
 export const routes: Routes = [
   { path: '', component: UserFormComponent },
-  { path: 'login', component: DatePickerComponent },
-  { path: 'contact', component: DatePickerComponent },
-  { path: 'about', component: DatePickerComponent },
+  { path: 'home', component: HobbiesComponent },
+  { path: 'contact', component: UserFormComponent },
+  { path: 'about', component: UserFormComponent },
 ];
 
 @NgModule({

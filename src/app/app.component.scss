@@ -11,6 +11,7 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       box-sizing: border-box;
       z-index: 99;
+      opacity: 0.7;
     }
 
     &-success {
@@ -24,6 +25,31 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       box-sizing: border-box;
       z-index: 99;
+      opacity: 0.7;
     }
   }
+}
+.centered-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.centered-message p {
+  max-width: 80%;
+  font-size: 30px;
+}
+
+.centered-message span {
+  font-weight: bold;
+  color: #ffcc00;
+  white-space: nowrap;
 }

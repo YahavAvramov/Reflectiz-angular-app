@@ -18,6 +18,7 @@ import { HobbiesComponent } from './components/hobbies/hobbies.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToastrModule } from 'ngx-toastr';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
     DatePickerComponent,
     CountrySelectComponent,
     HobbiesComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
