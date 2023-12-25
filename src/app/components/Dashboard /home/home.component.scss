@@ -88,6 +88,10 @@ body {
     overflow: hidden;
   }
 }
+.map-container {
+  width: 100%;
+  max-width: 600px;
+}
 
 .graph-section:not(.center):hover {
   transform: scale(1.05);

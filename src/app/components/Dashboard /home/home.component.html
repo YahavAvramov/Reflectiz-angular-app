@@ -15,9 +15,13 @@
     </div>
 
     <div class="graph-section center">
-      <h2>Graph 3</h2>
-      <p>Explanation for Graph 3</p>
-      <app-map></app-map>
+      <h2>Most of the visitors are from</h2>
+      <ng-container *ngIf="mostVisitedCountry$ | async as mostVisitedCountry">
+        {{ mostVisitedCountry.country.name }}
+      </ng-container>
+      <div class="map-container">
+        <app-map></app-map>
+      </div>
     </div>
   </div>
 </body>

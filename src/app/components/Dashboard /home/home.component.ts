@@ -9,5 +9,6 @@ import { AppService } from '../../../services/app.service';
 export class HomeComponent implements OnInit {
   constructor(private service: AppService) {}
 
+  mostVisitedCountry$ = this.service.getCountryWithMostVisitors();
   ngOnInit(): void {}
 }

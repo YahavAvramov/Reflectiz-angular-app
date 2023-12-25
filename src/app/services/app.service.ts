@@ -6,7 +6,7 @@ import { Country } from '../models/country';
 import { Motor } from '../models/motor';
 import { User } from '../models/user';
 import { HobbyView } from '../models/hobbyView';
-import { AgeCategory, AgeCategoryStats } from '../models/ateCategoryStats';
+import { MostVisitedCountry } from '../models/mostVisitedCountry';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,6 @@ export class AppService {
   private countriesApi = env.COUNTRIES_API_URL;
   private motorsAPI = env.MOTORS_API;
   private usersApi = env.USERS_API;
-  private mapApi = env.MAP_API;
 
   constructor(private http: HttpClient) {}
 
@@ -113,7 +112,35 @@ export class AppService {
     return age;
   }
 
-  getGoogleMap(): Observable<any> {
-    return this.http.get<any>(this.mapApi);
+  getCountryWithMostVisitors(): Observable<MostVisitedCountry | null> {
+    return this.getUsers().pipe(
+      map((users: User[]) => {
+        if (users.length === 0) {
+          return null; // if there is no users return null
+        }
+
+        // Count the occurrences of each country
+        const countryCountMap = new Map<Country, number>();
+        users.forEach((user) => {
+          const country = user.locationDetails?.country;
+          if (country) {
+            countryCountMap.set(country, (countryCountMap.get(country) || 0) + 1);
+          }
+        });
+
+        // Find the country with the most occurrences
+        let mostVisitedCountry: MostVisitedCountry | null = null;
+        let maxCount = 0;
+
+        countryCountMap.forEach((count, country) => {
+          if (count > maxCount) {
+            mostVisitedCountry = new MostVisitedCountry(country, count);
+            maxCount = count;
+          }
+        });
+
+        return mostVisitedCountry;
+      }),
+    );
   }
 }

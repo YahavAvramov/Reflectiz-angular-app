@@ -12,7 +12,7 @@ export class HobbiesComponent {
   newHobby: string = '';
 
   addHobby() {
-    if (this.newHobby) {
+    if (this.newHobby && !this.hobbies.includes(this.newHobby)) {
       this.hobbies.push(this.newHobby);
       this.newHobby = '';
       this.hobbiesUpdated.emit(this.hobbies);
