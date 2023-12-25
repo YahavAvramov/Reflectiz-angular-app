@@ -1,3 +1,23 @@
-<h1>home</h1>
-<app-most-common-hobby></app-most-common-hobby>
-<app-users-by-age></app-users-by-age>
+<body>
+  <div class="graph-container">
+    <div class="graph-row">
+      <div class="graph-section left">
+        <h2>Most Common Hobby</h2>
+        <p>Explore the most common hobbies among users.</p>
+        <app-most-common-hobby class="graph large"></app-most-common-hobby>
+      </div>
+
+      <div class="graph-section middle">
+        <h2>Users by Age</h2>
+        <p>Discover the distribution of users based on age.</p>
+        <app-users-by-age class="graph"></app-users-by-age>
+      </div>
+    </div>
+
+    <div class="graph-section center">
+      <h2>Graph 3</h2>
+      <p>Explanation for Graph 3</p>
+      <app-map></app-map>
+    </div>
+  </div>
+</body>

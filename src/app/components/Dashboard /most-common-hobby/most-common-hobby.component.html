@@ -1,12 +1,17 @@
 <div class="chart">
   <ng-container *ngFor="let hobby of mostCommonHobbies$ | async; let i = index">
     <ng-container *ngIf="number$ | async as maxHobbies">
-      <div
-        class="bar"
-        [style.height.%]="(hobby.numberOfUsersThatHaveThisHobby / maxHobbies) * 100"
-        [style.background-color]="getBarColor(i)"
-      >
-        <div class="label">{{ hobby.hobbyName }} {{ hobby.numberOfUsersThatHaveThisHobby }}</div>
+      <div class="bar-container">
+        <p class="tag">
+          Number of users that have this hobby: {{ hobby.numberOfUsersThatHaveThisHobby }}
+        </p>
+        <div
+          class="bar"
+          [style.width.%]="(hobby.numberOfUsersThatHaveThisHobby / maxHobbies) * 100"
+          [style.background-color]="getBarColor(i)"
+        >
+          <div class="label">{{ hobby.hobbyName }}</div>
+        </div>
       </div>
     </ng-container>
   </ng-container>

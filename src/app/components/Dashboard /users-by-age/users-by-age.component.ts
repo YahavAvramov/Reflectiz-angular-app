@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../../services/app.service';
 import { User } from '../../../models/user';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users-by-age',
@@ -10,10 +10,12 @@ import { Observable, map } from 'rxjs';
 })
 export class UsersByAgeComponent implements OnInit {
   users$ = this.service.getUsers();
+  number = 180;
 
   constructor(private service: AppService) {
     this.service.getUsersByAgeRange(18, 28).subscribe((r) => console.log(r));
   }
+
   usersByRange0_18$: Observable<User[]> | undefined;
   usersByRange18_30$: Observable<User[]> | undefined;
   usersByRange30_60$: Observable<User[]> | undefined;
@@ -27,5 +29,9 @@ export class UsersByAgeComponent implements OnInit {
 
   getUsersByRange(from: number, to: number): Observable<User[]> {
     return this.service.getUsersByAgeRange(from, to);
+  }
+
+  round(number: number): number {
+    return Math.round(number);
   }
 }

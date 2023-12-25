@@ -18,9 +18,11 @@ import { HobbiesComponent } from './components/hobbies/hobbies.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToastrModule } from 'ngx-toastr';
-import { HomeComponent } from './components/Dashboard /home/home.component';
-import { MostCommonHobbyComponent } from './components/Dashboard /most-common-hobby/most-common-hobby.component';
-import { UsersByAgeComponent } from './components/Dashboard /users-by-age/users-by-age.component';
+import { HomeComponent } from './components/dashboard /home/home.component';
+import { MostCommonHobbyComponent } from './components/dashboard /most-common-hobby/most-common-hobby.component';
+import { UsersByAgeComponent } from './components/dashboard /users-by-age/users-by-age.component';
+import { MapComponent } from './components/dashboard /map/map.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { UsersByAgeComponent } from './components/Dashboard /users-by-age/users-
     HomeComponent,
     MostCommonHobbyComponent,
     UsersByAgeComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,10 @@ import { UsersByAgeComponent } from './components/Dashboard /users-by-age/users-
     HttpClientModule,
     ColorPickerModule,
     MatSnackBarModule,
+    GoogleMapsModule,
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'AIzaSyDoBkpNSOm8XGyuiyJRcGKPsfUzQ9IXyNE',
+    // }),
   ],
   providers: [],
   bootstrap: [AppComponent],

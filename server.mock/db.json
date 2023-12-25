@@ -458,6 +458,34 @@
         "type": "Electric"
       },
       "id": 15
+    },
+    {
+      "firstName": "fwef",
+      "lastName": "wef",
+      "gender": "female",
+      "email": "yahav99999@gmail.com",
+      "birthDate": "2023-12-19T22:00:00.000Z",
+      "locationDetails": {
+        "_country": {
+          "_name": "Israel",
+          "name": "Israel"
+        },
+        "_address": "dasf",
+        "country": {
+          "_name": "Israel",
+          "name": "Israel"
+        },
+        "address": "dasf"
+      },
+      "listOfHobbies": [
+        "dew"
+      ],
+      "favoriteColor": "#800080",
+      "requiredAmountOfSeats": 5,
+      "motorType": {
+        "type": "Electric"
+      },
+      "id": 16
     }
   ],
   "countries": [

@@ -1,24 +1,64 @@
 <ng-container *ngIf="users$ | async as allUsers">
   <ng-container *ngIf="usersByRange0_18$ | async as users">
-    <section class="model-1">
-      <div class="graph" [style.height.%]="(users.length / allUsers.length) * 100">
-        0-18: {{ users.length }}
+    <div class="eb-progress-bar-wrapper">
+      <div
+        class="eb-progress-bar html"
+        [style.--value]="round((users.length / allUsers.length) * 100)"
+        [style.--col]="'#ff5089'"
+      >
+        <progress id="html" min="0" max="100" value="85"></progress>
       </div>
-    </section>
+
+      <label for="html" class="eb-progress-bar-title">
+        <h2>0-18</h2>
+      </label>
+    </div>
   </ng-container>
+
   <ng-container *ngIf="usersByRange18_30$ | async as users">
-    <section class="model-2">
-      <div class="graph" tooltip="10%">18-30: {{ users.length }}</div>
-    </section>
+    <div class="eb-progress-bar-wrapper">
+      <div
+        class="eb-progress-bar html"
+        [style.--value]="round((users.length / allUsers.length) * 100)"
+        [style.--col]="'#ff5089'"
+      >
+        <progress id="html" min="0" max="100" value="85"></progress>
+      </div>
+
+      <label for="html" class="eb-progress-bar-title">
+        <h2>18-30</h2>
+      </label>
+    </div>
   </ng-container>
+
   <ng-container *ngIf="usersByRange30_60$ | async as users">
-    <section class="model-3">
-      <div class="graph" [style.height.%]="100">30-60: {{ users.length }}</div>
-    </section>
+    <div class="eb-progress-bar-wrapper">
+      <div
+        class="eb-progress-bar html"
+        [style.--value]="round((users.length / allUsers.length) * 100)"
+        [style.--col]="'#ff5089'"
+      >
+        <progress id="html" min="0" max="100" value="85"></progress>
+      </div>
+
+      <label for="html" class="eb-progress-bar-title">
+        <h2>30-60</h2>
+      </label>
+    </div>
   </ng-container>
   <ng-container *ngIf="usersByRange60_150$ | async as users">
-    <section class="model-4">
-      <div class="graph" [style.height.%]="10">60+: {{ users.length }}</div>
-    </section>
+    <div class="eb-progress-bar-wrapper">
+      <div
+        class="eb-progress-bar html"
+        [style.--value]="round((users.length / allUsers.length) * 100)"
+        [style.--col]="'#ff5089'"
+      >
+        <progress id="html" min="0" max="100" value="85"></progress>
+      </div>
+
+      <label for="html" class="eb-progress-bar-title">
+        <h2>60+</h2>
+      </label>
+    </div>
   </ng-container>
 </ng-container>

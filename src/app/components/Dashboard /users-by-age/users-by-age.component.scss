@@ -1,208 +1,112 @@
-*,
-*:after,
-*:before {
-  box-sizing: border-box;
+@property --eb-progress-value {
+  syntax: '<integer>';
+  inherits: false;
+  initial-value: 0;
+}
+
+@keyframes eb-progress {
+  to {
+    --eb-progress-value: var(--value);
+  }
 }
 
 body {
-  background: #1f2428;
-  text-align: center;
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-}
-
-section {
-  display: inline-block;
-  width: 33.33%;
-  margin: 50px 0;
-  text-align: center;
-  min-width: 320px;
-  position: relative;
-}
-
-.tooltip {
-  position: absolute;
-  background: #eee;
-  padding: 3px;
-  font-weight: 100;
-  font-size: 12px;
-  border-radius: 2px;
-  border: 1px solid #ddd;
-  bottom: 100%;
-  left: 50%;
-  opacity: 0;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-.tooltip:after {
-  content: '' attr(tooltip) '';
-  margin-left: 3px;
-  color: #2dabd8;
-}
-.tooltip:before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  background: #2dabd8;
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.graph {
-  width: 300px;
-  height: 150px;
-  position: relative;
+  font-family: -apple-system, system-ui, Helvetica, Arial, sans-serif;
   margin: auto;
-  text-align: center;
-  color: #fff;
-  font-size: 22px;
-  line-height: 280px;
-  font-weight: 600;
-  border-radius: 150px 150px 0 0;
-  overflow: hidden;
-  color: #0ff;
-}
-.graph:before,
-.graph:after {
-  content: '';
-  width: 300px;
-  height: 150px;
-  border: 50px solid #0ff;
-  border-top: none;
-  position: absolute;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  -webkit-transform-origin: 50% 0%;
-  transform-origin: 50% 0%;
-  border-radius: 0 0 300px 300px;
-  -webkit-animation: demo 2s;
-  animation: demo 2s;
-  left: 0;
-  top: 100%;
-  z-index: 5;
-}
-.graph:after {
-  z-index: 3;
-  border-color: rgba(0, 0, 0, 0.15);
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-.graph:hover:before {
-  opacity: 0.8;
-  cursor: pointer;
-}
-.graph:hover + .tooltip {
-  bottom: 105%;
-  opacity: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #f2f2f2;
+  max-width: 800px;
+  height: 100vh;
 }
 
-.multi-graph {
-  width: 300px;
-  height: 150px;
-  position: relative;
-  margin: auto;
-  color: #fff;
-  font-size: 22px;
-  line-height: 280px;
-  font-weight: 600;
-}
-.multi-graph:before {
-  content: '';
-  width: 300px;
-  height: 150px;
-  border: 50px solid rgba(0, 0, 0, 0.15);
-  border-bottom: none;
-  position: absolute;
-  -webkit-transform-origin: 50% 0%;
-  transform-origin: 50% 0%;
-  border-radius: 300px 300px 0 0;
-  left: 0;
-  top: 0;
-}
-.multi-graph .graph {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.multi-graph .graph:after {
-  background: #eee;
-  border: medium none;
-  border-radius: 2px;
-  color: #333;
-  font-weight: 200;
-  content: '' attr(data-name) '';
-  display: inline-block;
-  font-size: 12px;
-  height: 20px;
-  left: 50%;
-  line-height: 20px;
-  padding: 0 5px;
-  top: 50px;
-  z-index: 0;
-  -webkit-transform: rotate(0deg) translateX(-50%);
-  transform: rotate(0deg) translateX(-50%);
-  width: auto;
-  opacity: 0;
-}
-.multi-graph .graph:hover:after {
-  opacity: 1;
-  top: 70px;
-}
+.eb-progress-bar {
+  --size: 4.5rem;
+  --inner-bg: #f2f2f2;
+  --primary-color: var(--col);
+  --secondary-color: #dfe0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0px 2px rgb(0 0 0 / 40%), inset 0 0px 1px rgb(0 0 0 / 30%),
+    0 1px 2px rgb(0 0 0 / 60%), 0 4px 2px rgb(0 0 0 / 20%), 0 9px 4px rgb(0 0 0 / 10%),
+    inset 0 2px 1px #ffffff8c;
+  width: var(--size);
+  height: var(--size);
+  font-size: calc(var(--size) / 5);
+  color: var(--primary-color);
+  background: radial-gradient(closest-side, var(--inner-bg) 79%, transparent 80% 100%),
+    conic-gradient(
+      var(--primary-color) calc(var(--eb-progress-value) * 1%),
+      var(--secondary-color) 0
+    );
+  border-radius: 50%;
 
-.model-1 .graph {
-  color: #ec4a26;
-}
-.model-1 .graph:before {
-  -webkit-transform: rotate(100deg);
-  transform: rotate(100deg);
-  border-color: #ec4a26;
-}
-
-section.model-2 .graph {
-  color: #2dabd8;
-}
-section.model-2 .graph:before {
-  -webkit-transform: rotate(130deg);
-  transform: rotate(130deg);
-  border-color: #2dabd8;
-}
-
-section.model-3 .javaScript:before {
-  -webkit-transform: rotate(80deg);
-  transform: rotate(80deg);
-  border-color: #feda3e;
-}
-section.model-3 .jQuery:before {
-  -webkit-transform: rotate(130deg);
-  transform: rotate(130deg);
-  border-color: #0669ad;
-}
-section.model-3 .angular:before {
-  -webkit-transform: rotate(30deg);
-  transform: rotate(30deg);
-  border-color: #e62a39;
-}
-section.model-3 .graph {
-  color: #2dabd8;
-}
-@-webkit-keyframes demo {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+  &-wrapper {
+    display: grid;
+    place-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    transform: scale(1.5);
   }
-  50% {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
+
+  &,
+  &::before {
+    animation: eb-progress 2s 1 forwards;
+  }
+
+  &::before {
+    counter-reset: percentage var(--eb-progress-value);
+    content: counter(percentage) '%';
+    font-weight: 400;
+    font-family: Roboto;
+    font-size: 15px;
+    color: #9e9e9e;
+
+    background: #f5f6f7;
+    background-image: -webkit-gradient(
+      linear,
+      right top,
+      right bottom,
+      color-stop(0%, #ffffff),
+      color-stop(100%, #d3d1cb)
+    );
+
+    box-shadow: 1px 1px 3px rgb(0 0 0 / 15%);
+    padding: 20px 15px;
+    border-radius: 50%;
+    z-index: 1;
+    position: relative;
+    border: 1px solid #d0d0d0;
+  }
+
+  &-title {
+    text-align: center;
+    color: inherit;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 400;
+    font-family: Roboto;
+  }
+
+  progress {
+    visibility: hidden;
+    width: 0;
+    height: 0;
   }
 }
-@keyframes demo {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  50% {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
+
+h2 {
+  font-family: 'integralcfmedium' !important;
+  margin-top: 6px;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 64px;
   }
 }

@@ -15,6 +15,7 @@ export class AppService {
   private countriesApi = env.COUNTRIES_API_URL;
   private motorsAPI = env.MOTORS_API;
   private usersApi = env.USERS_API;
+  private mapApi = env.MAP_API;
 
   constructor(private http: HttpClient) {}
 
@@ -110,5 +111,9 @@ export class AppService {
     }
 
     return age;
+  }
+
+  getGoogleMap(): Observable<any> {
+    return this.http.get<any>(this.mapApi);
   }
 }
